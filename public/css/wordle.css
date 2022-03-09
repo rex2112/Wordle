@@ -1,0 +1,18 @@
+body {
+    background-color: #b3d9fa;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+}
+
+label {
+    font-size: 1rem;
+    padding-right: 10px;
+}
+
+select {
+    font-size: 0.8rem;
+    padding: 2px 5px;
+}
