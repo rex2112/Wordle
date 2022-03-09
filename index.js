@@ -3,8 +3,6 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 const { endianness } = require('os');
-// const readFileSync = require('fs.readFileSync');
-// import { readFileSync } from 'fs';
 const port = 8080;
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -15,18 +13,14 @@ app.set('views', path.join(__dirname, '/views'));
 
 // --------- Express Routes definition ---------
 app.get('/', (req, res) => {
-    res.render('home');
-});
-
-app.get('/wordle', (req, res) => {
     console.log('req.query:');
     console.log(req.query);
     const formParams = req.query;
     const response = '<this is where the filtered words will be displayed>';
-    res.render('wordle', { words: [response], formParams });
+    res.render('home', { words: [response], formParams });
 });
 
-app.post('/wordle', (req, res) => {
+app.post('/', (req, res) => {
     console.log('req.body:');
     var response = '';
     const formParams = req.body;
@@ -36,22 +30,16 @@ app.post('/wordle', (req, res) => {
     if (!dict_select) {
         response = 'You must select a dictionary.';
         console.log(`Response: ${response}`);
-        res.render('wordle', { words: [response], formParams });
+        res.render('home', { words: [response], formParams });
     } else if (!correctPositions && !wrongPositions && !lettersNotFound) {
         response = 'You must enter at least a word filter.';
         console.log(`Response: ${response}`);
-        res.render('wordle', { words: [response], formParams });
+        res.render('home', { words: [response], formParams });
     } else {
         const words = GetWords(dictionaries[dict_select], formParams);
-        res.render('wordle', { words, formParams });
+        res.render('home', { words, formParams });
     }
 });
-
-// app.get('/wordle/:dict', (req, res) => {
-//     const { dict } = req.params;
-//     console.log(dict);
-//     res.send(`<h1>Using dictionary: ${dict}</h1>`);
-// });
 
 app.get('*', (req, res) => {
     res.send('I do not know the path!');
