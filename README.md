@@ -1,6 +1,6 @@
 # Wordle Solver
 
-This is a simple web that aids in solving the Wordle online puzzle (https://www.nytimes.com/games/wordle/index.html) and all variants.
+This is a simple web that aids in solving the <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> online puzzle and all its variants.
 
 The application expects a dictionary file and the three letters combinations given the following criteria:
 
