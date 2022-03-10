@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
-const { endianness } = require('os');
-const port = 8080;
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true }));
@@ -161,6 +159,12 @@ function GetWords(dictionary, formParams) {
 // express lo llama en automático con el parámetro 'view engine'
 app.set('view engine', 'ejs');
 
-app.listen(port, () => {
-    console.log(`LISTENING ON ${port}`);
-});
+var port = process.env.PORT;
+if (port == null || port == '') {
+    port = 8080;
+}
+app.listen(port);
+
+// app.listen(port, () => {
+//     console.log('Node app is running on port', port);
+// });
