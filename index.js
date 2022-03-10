@@ -21,9 +21,18 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     console.log('req.body:');
     var response = '';
-    const formParams = req.body;
-    const { dict_select, correctPositions, wrongPositions, lettersNotFound } =
+    var formParams = req.body;
+    var { dict_select, correctPositions, wrongPositions, lettersNotFound } =
         formParams;
+    correctPositions = correctPositions.toLowerCase();
+    wrongPositions = wrongPositions.toLowerCase();
+    lettersNotFound = lettersNotFound.toLowerCase();
+    formParams = {
+        dict_select,
+        correctPositions,
+        wrongPositions,
+        lettersNotFound,
+    };
     console.log(formParams);
     if (!dict_select) {
         response = 'You must select a dictionary.';
