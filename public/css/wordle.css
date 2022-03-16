@@ -7,6 +7,10 @@ p {
     font-size: 1.2em;
 }
 
+p .modal {
+    font-size: 0.8em;
+}
+
 label {
     font-size: 1rem;
     padding-right: 10px;
@@ -15,4 +19,22 @@ label {
 select {
     font-size: 0.8rem;
     padding: 2px 5px;
+}
+
+.green {
+    background-color: rgb(83, 142, 78);
+    color: white;
+    font-weight: 700;
+}
+
+.yellow {
+    background-color: rgb(181, 159, 58);
+    color: white;
+    font-weight: 700;
+}
+
+.gray {
+    background-color: rgb(58, 58, 60);
+    color: white;
+    font-weight: 700;
 }

@@ -19,12 +19,43 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="/css/wordle.css" />
-        <title>Wordle Solver</title>
+        <title>Wordle Helper</title>
     </head>
     <body>
-        <h1>Wordle Solver</h1>
+        <h1>Wordle Helper</h1>
         <section class="container-fluid">
-            <div class="row py-3">
+            <p>
+                Simple web app that aids in solving the <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a> online puzzle and any of its variants. For more info click <a href="#" data-bs-toggle="modal" data-bs-target="#instructionsModal">here</a>.
+            </p>
+            <!-- Scrollable modal -->
+            <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Wordle Helper instructions</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This is a simple web app that aids in solving the <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a> online puzzle and all its variants.</p>
+                        <p>The application expects a dictionary file and a combination of letters and numbers based on the following criteria:</p>
+                        <ul>
+                            <li>Words with letters in positive (correct) positions (e.g. 'a4' or 'f5', space separated). These are usually marked as <span class="green">green</span> in Wordle.</li>
+                            <li>Words with letters present in word but in an incorrect position (e.g. 'a4' or 'f5', space separated). These are usually marked as <span class="yellow">yellow</span> in Wordle.</li>
+                            <li>Words with letters not present in the word (format: 'j k o' - space separated). These are usually marked as <span class="gray">gray</span> in Wordle.</li>
+                        </ul>
+                        
+                        <p>Currently I only have dictionaries for English and Spanish. Let me know if you would like additional ones included.</p>
+                        <p>I will eventually include basic validation but as of now you should know the basic rules of the game to know what is expected from you. That is, you should take into account the game rules to include letter filters or else the app won't work.</p>
+                        <p>I am open to suggestions for improvements. I'll include a comments form in the near future.</p>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="row py-3">
                 <div class="col-lg-4">
                     <form action method="post" id="wordle_solver" autocomplete="off">
                         <dl>
